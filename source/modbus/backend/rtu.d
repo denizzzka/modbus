@@ -78,7 +78,7 @@ unittest
     Params:
     data = last two bytes used as CRC16
  +/
-bool checkCRC(const(void)[] data) pure nothrow @trusted @nogc
+bool checkCRC(const(void)[] data) pure nothrow @safe @nogc
 {
     auto msg = cast(const(ubyte[]))data;
     auto a = msg[$-2..$];
@@ -142,7 +142,7 @@ unittest
     Params:
     data = input data for calculation CRC16
  +/
-ubyte[2] crc16(const(void)[] data) pure nothrow @trusted @nogc
+ubyte[2] crc16(const(void)[] data) pure nothrow @safe @nogc
 {
     ushort crc = 0xFFFF;
     crc16(crc, cast(const ubyte[]) data);
